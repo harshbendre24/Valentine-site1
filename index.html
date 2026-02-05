@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Valentine</title>
+  <style>
+    body {
+      background: #ffe6ef;
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .card {
+      background: white;
+      padding: 40px;
+      border-radius: 20px;
+      text-align: center;
+      width: 350px;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+      position: relative;
+    }
+
+    h2 {
+      margin-bottom: 30px;
+    }
+
+    .btn {
+      padding: 15px 30px;
+      font-size: 18px;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      margin: 10px;
+      transition: 0.2s;
+    }
+
+    #yesBtn {
+      background: #ff4d79;
+      color: white;
+    }
+
+    #noBtn {
+      background: #ddd;
+      position: absolute;
+    }
+  </style>
+</head>
+<body>
+
+<div class="card">
+  <h2>Suruchi will you be my valentine? 💕</h2>
+
+  <button class="btn" id="yesBtn" onclick="yesClicked()">Yes</button>
+  <button class="btn" id="noBtn">No</button>
+</div>
+
+<script>
+let scale = 1;
+
+const noBtn = document.getElementById("noBtn");
+const yesBtn = document.getElementById("yesBtn");
+
+noBtn.addEventListener("mouseover", () => {
+  const x = Math.random() * 250;
+  const y = Math.random() * 150;
+  noBtn.style.left = x + "px";
+  noBtn.style.top = y + "px";
+
+  scale += 0.2;
+  yesBtn.style.transform = `scale(${scale})`;
+});
+
+function yesClicked() {
+  document.body.innerHTML = `
+    <div style="
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      height:100vh;
+      font-size:40px;
+      background:#ffe6ef;
+    ">
+      ❤️ Yay Suruchi said YES! ❤️
+    </div>
+  `;
+}
+</script>
+
+</body>
+</html>
